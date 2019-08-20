@@ -1,0 +1,14 @@
+.movie-img-sction{
+    height: 300px;
+    border:2px solid;
+    width:inherit;
+    background-repeat: no-repeat;
+    
+    background-size: cover;
+}
+.movie-title{
+    border:2px solid
+}
+.user-rate{
+    text-align: right
+}
