@@ -3,13 +3,18 @@ import MovieCard from './movie-card.js'
 import './movie-list.css'
 
 
+import isLoading from './isLoading.js'
+
+
+
 class Popup extends React.Component {
   constructor(props){
     super(props)
     this.state={
       title:"",
       img:"",
-      rate:''
+      rate:'',
+      
     }
   }
   titleChange=(e)=>{
@@ -55,6 +60,7 @@ class  Movielist extends React.Component  {
   constructor(props){
     super(props);
     this.state ={
+     
       searchres:this.props.searchres,
       starRate:this.props.starRate,
       resArr:[],
@@ -115,7 +121,10 @@ class  Movielist extends React.Component  {
  this.state.resArr= this.state.movieArr.filter(el=> el.title.toUpperCase().indexOf(this.props.searchres.toUpperCase().trim())!==-1
    &&this.props.starRate<=el.rate)
    console.log('rate :',this.state.resArr)
+   
+
    return (
+     
         <div className="row">
          
         
@@ -142,4 +151,4 @@ class  Movielist extends React.Component  {
   }
 };
 
-export default Movielist;
+export default isLoading(Movielist);

@@ -10,7 +10,8 @@ class  Movie extends React.Component  {
     super(props);
     this.state ={
       search:"",
-      starRate:'0'
+      starRate:'0',
+     isload:false,
     }
     }
 searchRes=(e)=>{
@@ -20,11 +21,19 @@ searchRes=(e)=>{
     
   })
 }
+componentDidMount() {
+  setTimeout(()=>{
+    this.setState({isload: true, });
+  },5000)
+  
+ 
+}
 rating=(rate)=>{
  this.setState({starRate:rate,})
  console.log(rate)
 }
   render(){
+    console.log('isLoading :',this.state.isload)
       return (
        <div className="container main">
          <div className="row justify-content-between">
@@ -51,7 +60,7 @@ rating=(rate)=>{
            </div>
          </div>
          
-           <Movielist searchres={this.state.search} starRate={this.state.starRate}/>
+           <Movielist searchres={this.state.search} starRate={this.state.starRate} isLoad={!this.state.isload}/>
          
        </div>
    
